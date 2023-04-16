@@ -1,6 +1,7 @@
 :root {
     --green: #3c56b5;
     --dark: #1b1b1b;
+    --bodyHeight: 145vh;
 }
 
 * {
@@ -14,12 +15,13 @@ body {
     background: var(--green);
     background: linear-gradient(to left bottom, var(--green) 0%, var(--dark) 100%);
     color: #fff;
+    max-width: 100%;
     width: 100vw;
-    height: 100vh;
+    height: var(--bodyHeight);
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 h1 {
@@ -58,7 +60,8 @@ a:hover:after{
 
 .container {
     max-width: 1200px;
-    max-height: 80vh;
+    /* max-height: 80vh; */
+    /* height: 2000px; */
     display: flex;
     flex-wrap: wrap;
     background: rgba(0, 0, 0, 0.75);
@@ -68,7 +71,7 @@ a:hover:after{
     position: relative;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    overflow: auto;
+    /* overflow: auto; */
 }
 
 header {
@@ -84,14 +87,29 @@ header {
     width: 100%;
 }
 
+.bg {
+    max-height: 145vh;
+}
+
 .bg__img {
     position: absolute;
     z-index: -1;
 }
 
-.bg__img--button {
+.square-container {
+    position: absolute;
     top: 0;
-    right: 60%;
+    right: 50%;
+    width: 30%;
+    /* width: 100%;  */
+    height: var(--bodyHeight); /* Wysokość kontenera; powinna być taka sama jak wartość height dla body */
+    overflow: hidden;
+}
+
+.bg__img--square {
+    /* top: 0;
+    right: 60%; */
+    position: absolute;
     animation: slideDown 12s linear infinite;
 }
 
@@ -120,14 +138,28 @@ section {
 }
 
 section:first-child {
-    
-    margin-right: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
 }
 
 .people {
     height: 70%;
     display: flex;
     /* padding-bottom: 24px; */
+}
+
+/* .people--firstColumn {
+    flex-direction: column;
+    justify-content: space-between;
+} */
+
+.people--secondColumn {
+    margin-top: 150px;
+    margin-left: 50px;
+}
+
+.person {
+    margin-bottom: 50px;
 }
 
 .person__img {
@@ -143,10 +175,10 @@ section:first-child {
     width: 105%;
 }
 
-.person:last-child {
+/* .person:last-child {
     align-self: flex-end;
     transform: translateX(30px);
-}
+} */
 
 .person__name {
     display: block;
@@ -215,7 +247,7 @@ button:hover:after {
 
 @keyframes slideDown {
     from { transform: translateY(-100%); }
-    to { transform: translateY(100vh); }
+    to { transform: translateY(145vh); }
 }
 
 @keyframes rotate {
