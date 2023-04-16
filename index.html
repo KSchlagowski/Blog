@@ -73,10 +73,53 @@
                 <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                 </p>
-                <button>Zapisuję się!</button>
+                <div class="button-container">
+                    <button>Zapisuję się!</button>
+                </div>
             </section>
             
         </main>
     </div>
+    
 </body>
+<script>
+    window.addEventListener("load", () => {
+        const squareContainer = document.querySelector(".square-container");
+        squareContainer.style.height = document.body.clientHeight + "px";
+    });
+
+    window.addEventListener("resize", () => {
+        const squareContainer = document.querySelector(".square-container");
+        squareContainer.style.height = document.body.clientHeight + "px";
+    });
+</script>
+<script>
+    function setAnimation() {
+        const bodyHeight = document.body.clientHeight;
+        const animationCSS = `
+            @keyframes slideDown {
+                from { transform: translateY(-100%); }
+                to { transform: translateY(${bodyHeight}px); }
+            }
+        `;
+
+        const animationStyle = document.getElementById("animation-style");
+        if (animationStyle) {
+            animationStyle.innerHTML = animationCSS;
+        } else {
+            const newStyle = document.createElement("style");
+            newStyle.id = "animation-style";
+            newStyle.innerHTML = animationCSS;
+            document.head.appendChild(newStyle);
+        }
+    }
+
+    window.addEventListener("load", () => {
+        setAnimation();
+    });
+
+    window.addEventListener("resize", () => {
+        setAnimation();
+    });
+</script>
 </html>

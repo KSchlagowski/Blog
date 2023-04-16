@@ -1,7 +1,7 @@
 :root {
-    --green: #3c56b5;
+    --blue: #3c56b5;
     --dark: #1b1b1b;
-    --bodyHeight: 145vh;
+    --bodyHeight: 100vh;
 }
 
 * {
@@ -12,16 +12,17 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: var(--green);
-    background: linear-gradient(to left bottom, var(--green) 0%, var(--dark) 100%);
+    background: var(--blue);
+    background: linear-gradient(to left bottom, var(--blue) 0%, var(--dark) 100%);
     color: #fff;
     max-width: 100%;
     width: 100vw;
-    height: var(--bodyHeight);
+    /* height: var(--bodyHeight); */
+    min-height: var(--bodyHeight);
     display: flex;
     justify-content: center;
     align-items: center;
-    /* overflow: hidden; */
+    
 }
 
 h1 {
@@ -38,7 +39,7 @@ p {
 
 a {
     text-decoration: none;
-    color: var(--green);
+    color: var(--blue);
     position: relative;
 }
 
@@ -49,8 +50,8 @@ a:after {
     position: absolute;
     top: 100%;
     left: 0;
-    background: var(--green);
-    background: linear-gradient(90deg, transparent, var(--green), transparent);
+    background: var(--blue);
+    background: linear-gradient(90deg, transparent, var(--blue), transparent);
     transition: width 0.3s ease;
 }
 
@@ -59,9 +60,11 @@ a:hover:after{
 }
 
 .container {
+    margin-top: 50px;
+    margin-bottom: 50px;
     max-width: 1200px;
-    /* max-height: 80vh; */
-    /* height: 2000px; */
+    /* max-height: 103%; */
+    min-height: 100%;
     display: flex;
     flex-wrap: wrap;
     background: rgba(0, 0, 0, 0.75);
@@ -71,7 +74,8 @@ a:hover:after{
     position: relative;
     backdrop-filter: blur(6px);
     -webkit-backdrop-filter: blur(6px);
-    /* overflow: auto; */
+    
+    
 }
 
 header {
@@ -84,32 +88,15 @@ header {
     margin-left: 50px;
     margin-right: 100px;
     position: relative;
+    
 }
 
 .logo img {
     height: 100%;
     width: 100%;
     transform: translateY(18px);
+    
 }
-
-/*There will be .logoBlue and .logoWhite . These two elements should be on top of each other. Blue on top and white on bottom. */
-/* .logoBlue {
-    position: absolute;
-    z-index: 1;
-} */
-
-.logo img:hover {
-    visibility: hidden;
-}
-
-/* .logoWhite {
-    position: absolute;
-    z-index: 0;
-} */
-
-/* .logoWhite:hover {
-    visibility: visible;
-} */
 
 .bg {
     max-height: 145vh;
@@ -125,14 +112,11 @@ header {
     top: 0;
     right: 55%;
     width: 30%;
-    /* width: 100%;  */
-    height: var(--bodyHeight); /* Wysokość kontenera; powinna być taka sama jak wartość height dla body */
+    /* height: 130vh; */
     overflow: hidden;
 }
 
 .bg__img--square {
-    /* top: 0;
-    right: 60%; */
     position: absolute;
     animation: slideDown 12s linear infinite;
 }
@@ -142,7 +126,6 @@ header {
     top: 0;
     left: 55%;
     width: 35%;
-    /* height: 75vh; */
     height: var(--bodyHeight);
     overflow: hidden;
 }
@@ -157,7 +140,6 @@ header {
     top: 150px;
     left: 200px;
     height: 350px;
-    /* height: 75vh; */
     transform: translate(-50%, -50%);
     opacity: 0.25;
 }
@@ -176,15 +158,9 @@ section:first-child {
 }
 
 .people {
-    height: 70%;
+    height: 100%;
     display: flex;
-    /* padding-bottom: 24px; */
 }
-
-/* .people--firstColumn {
-    flex-direction: column;
-    justify-content: space-between;
-} */
 
 .people--secondColumn {
     margin-top: 150px;
@@ -198,7 +174,7 @@ section:first-child {
 .person__img {
     width: 200px;
     height: 200px;
-    background: var(--green);
+    background: var(--blue);
     border: solid 3px #fff;
     border-radius: 100%;
     overflow: hidden;
@@ -208,18 +184,13 @@ section:first-child {
     width: 105%;
 }
 
-/* .person:last-child {
-    align-self: flex-end;
-    transform: translateX(30px);
-} */
-
 .person__name {
     display: block;
     margin-top: 16px;
     text-align: center;
     font-size: 32px;
     font-weight: 700;
-    background: linear-gradient(90deg,  var(--green), #fff);
+    background: linear-gradient(90deg,  var(--blue), #fff);
     color: #000000; /*kolor zapasowy, normalnie ustawiany w test-fill*/
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -241,11 +212,17 @@ section:first-child {
     transform: translate(-3px, -14px);
 }
 
+.button-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 button {
     width: 350px;
     margin-top: 32px;
-    background: var(--green);
-    background: linear-gradient(to right top, var(--green) 0%, rgba(255, 255, 255, 0.6));
+    background: var(--blue);
+    background: linear-gradient(to right top, var(--blue) 0%, rgba(255, 255, 255, 0.6));
     color: #fff;
     border: none;
     padding: 1rem 2rem;
@@ -269,18 +246,12 @@ button:after {
     top: -25px;
     left: -100px;
     background-color: rgba(255, 255, 255, 0.4);
-    /* background: linear-gradient(90deg, transparent, var(--green), transparent); */
     transform: rotate(20deg);
     transition: transform 0.4s;
 }
 
 button:hover:after {
     transform: translateX(500px) rotate(20deg);
-}
-
-@keyframes slideDown {
-    from { transform: translateY(-100%); }
-    to { transform: translateY(145vh); }
 }
 
 @keyframes rotate {
