@@ -1,0 +1,224 @@
+:root {
+    --green: #3c56b5;
+    --dark: #1b1b1b;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--green);
+    background: linear-gradient(to left bottom, var(--green) 0%, var(--dark) 100%);
+    color: #fff;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+h1 {
+    padding: 25px 0 12px;
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.25rem;
+    font-weight: 400;
+    padding-bottom: 12px;
+    line-height: 32px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--green);
+    position: relative;
+}
+
+a:after {
+    content: "";
+    width: 0;
+    height: 3px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--green);
+    background: linear-gradient(90deg, transparent, var(--green), transparent);
+    transition: width 0.3s ease;
+}
+
+a:hover:after{
+    width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    max-height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.75);
+    background: linear-gradient(to right top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0.25) 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    position: relative;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    overflow: auto;
+}
+
+header {
+    flex: 1;
+}
+
+.logo {
+    width: 150px;
+    margin-right: 100px;
+}
+
+.logo img {
+    width: 100%;
+}
+
+.bg__img {
+    position: absolute;
+    z-index: -1;
+}
+
+.bg__img--button {
+    top: 0;
+    right: 60%;
+    animation: slideDown 12s linear infinite;
+}
+
+.bg__img--dots {
+    top: 0;
+    left: 50%;
+    height: 75vh;
+    animation: rotate 50s linear infinite;
+}
+
+.bg__img--logo {
+    top: 150px;
+    left: 200px;
+    height: 350px;
+    /* height: 75vh; */
+    transform: translate(-50%, -50%);
+    opacity: 0.25;
+}
+
+main {
+    display: flex;
+}
+
+section {
+    margin-top: 40px;
+}
+
+section:first-child {
+    
+    margin-right: 100px;
+}
+
+.people {
+    height: 70%;
+    display: flex;
+    /* padding-bottom: 24px; */
+}
+
+.person__img {
+    width: 200px;
+    height: 200px;
+    background: var(--green);
+    border: solid 3px #fff;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.person__img img {
+    width: 105%;
+}
+
+.person:last-child {
+    align-self: flex-end;
+    transform: translateX(30px);
+}
+
+.person__name {
+    display: block;
+    margin-top: 16px;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    background: linear-gradient(90deg,  var(--green), #fff);
+    color: #000000; /*kolor zapasowy, normalnie ustawiany w test-fill*/
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.person__img--Kacper img {
+    transform: translate(-5px, -13px);
+}
+
+.person__img--Kuba img {
+    transform: translate(0, -17px);
+}
+
+.person__img--KamilP img {
+    transform: translate(-2px, -10px);
+}
+
+.person__img--KamilS img {
+    transform: translate(-3px, -14px);
+}
+
+button {
+    width: 350px;
+    margin-top: 32px;
+    background: var(--green);
+    background: linear-gradient(to right top, var(--green) 0%, rgba(255, 255, 255, 0.6));
+    color: #fff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    font-size: 42px;
+    font-weight: 700;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+button:focus {
+    outline-color: #fff;
+}
+
+button:after {
+    content: "";
+    width: 50px;
+    height: 150%;
+    position: absolute;
+    top: -25px;
+    left: -100px;
+    background-color: rgba(255, 255, 255, 0.4);
+    /* background: linear-gradient(90deg, transparent, var(--green), transparent); */
+    transform: rotate(20deg);
+    transition: transform 0.4s;
+}
+
+button:hover:after {
+    transform: translateX(500px) rotate(20deg);
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-100%); }
+    to { transform: translateY(100vh); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
