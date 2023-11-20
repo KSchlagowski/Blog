@@ -9,8 +9,8 @@ import computerImg from "../images/computer.jpg"
         bottomImage: journeyImg
     };
     const links = {
-        topLink: "/techHome",
-        bottomLink: "/tripHome"
+        topLink: "/TechBlog",
+        bottomLink: "/TripBlog"
     }
 
     return (

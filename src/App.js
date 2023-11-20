@@ -8,6 +8,7 @@ import Layout from "./pages/Layout";
 import TechHome from './pages/tech/TechHome';
 import TripHome from './pages/trip/TripHome';
 import { React, useState } from "react";
+import AboutMe from './pages/AboutMe';
 
 export default function App() {
   const [getBlogContent, setGetBlogContent] = useState([]);
@@ -20,10 +21,11 @@ export default function App() {
         <Routes>         
             <Route path="/" element={<Layout />}>           
             <Route index element={<Home />} />           
-            <Route path="/techHome" element={<TechHome />} />    
-            <Route path="/techHome/:id" element={<TechHome content={getBlogContent}/>} />    
-            <Route path="/tripHome" element={<TripHome />} />  
-            <Route path="/tripHome/:id" element={<TripHome content={getBlogContent}/>} />
+            <Route path="/TechBlog" element={<TechHome />} />    
+            <Route path="/TechBlog/:id" element={<TechHome content={getBlogContent}/>} />    
+            <Route path="/TripBlog" element={<TripHome />} />  
+            <Route path="/TripBlog/:id" element={<TripHome content={getBlogContent}/>} />
+            <Route path="/AboutMe" element={<AboutMe />} />  
             <Route path="*" element={<NoPage />} />         
         </Route>       
         </Routes>     
