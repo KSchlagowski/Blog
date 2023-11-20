@@ -20,7 +20,8 @@ export default function App() {
     <BrowserRouter>       
         <Routes>         
             <Route path="/" element={<Layout />}>           
-            <Route index element={<Home />} />           
+            <Route index element={<Home />} />      
+            <Route path="/Blog" element={<Home />} />         
             <Route path="/TechBlog" element={<TechHome />} />    
             <Route path="/TechBlog/:id" element={<TechHome content={getBlogContent}/>} />    
             <Route path="/TripBlog" element={<TripHome />} />  
